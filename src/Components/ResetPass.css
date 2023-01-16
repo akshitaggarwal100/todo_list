@@ -1,0 +1,77 @@
+.error, .message {
+    width: 400px;
+    padding: 15px;
+    color: #ecd8db;
+    font-size: 1.2rem;
+    border-radius: 7px;
+    border-width: 1px;
+    border-style: solid;
+    margin-bottom: 1rem;
+}
+
+.error {
+    background-color: rgba(221, 23, 23, 0.3);
+    border-color: rgb(255, 0, 43);
+}
+
+.message {
+    background-color: rgba(23, 201, 61, 0.3);
+    border-color: rgb(43, 216, 95);
+}
+
+.forgotPass {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.forgotPassBox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.forgotPassHeading {
+    margin-bottom: 2rem;
+}
+
+.forgotPassForm {
+    width: 400px;
+    height: 250px;
+    padding: 20px;
+    background-color: #283541;
+    border: 1px solid #515a6d;
+    border-radius: 7px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.forgotPassForm label {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+.forgotPassForm input {
+    height: 35px;
+    padding: 0 7px;
+    border-radius: 7px;
+    border: 1px solid #515a6d;
+    background-color: #16181d;
+    color: white;
+    font-size: 1rem;
+}
+
+.link {
+    color: #099bca;
+}
+
+@media (max-width: 440px) {
+    .forgotPassForm {
+        width: 350px;
+    }
+}

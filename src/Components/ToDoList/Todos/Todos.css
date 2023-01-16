@@ -1,0 +1,88 @@
+.todoContainer {
+    width: 600px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.disable {
+    display: none;
+    visibility: hidden;
+}
+
+.todo {
+    height: 60px;
+    width: 100%;
+    padding: 0 15px;
+    margin-bottom: 15px;
+    background-color: #343a46;
+    border: 1px solid #515a6d;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.todoTask {
+    font-size: 1.2rem;
+}
+
+.todoAction,
+.addTodoBtn {
+    padding: 0.6rem 1rem;
+    margin-left: 1rem;
+    background-color: #099bca;
+    color: white;
+    border-radius: 7px;
+    border: 0;
+    outline: 0;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.addBtn {
+    margin: 2rem 0;
+    transform: scale(2.5);
+    cursor: pointer;
+    color: white;
+}
+
+.todoInputForm {
+    display: grid;
+    grid-template-columns: 1fr 80px;
+    grid-template-rows: 50px;
+    width: 100%;
+}
+
+.inputTodo {
+    height: 50px;
+    padding: 0 15px;
+    background-color: #343a46;
+    border: 1px solid #515a6d;
+    border-radius: 5px;
+    outline: 0;
+    color: white;
+    font-size: 1.3rem;
+}
+
+@media (max-width: 650px) {
+    .todoContainer {
+        width: 400px;
+    }
+}
+
+@media (max-width: 458px) {
+    .todoContainer {
+        width: 350px;
+    }
+
+    .todo {
+        height: 50px;
+    }
+
+    .todoAction {
+        padding: 0.5rem 1rem;
+    }
+}
