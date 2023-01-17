@@ -37,12 +37,12 @@ export default function SignUp() {
         try {
             setLoading(true)
             const user = await signInWithGoogle()
-            try {
-                await getDoc(doc(db, 'users', user.user.uid))
+            const temp = await getDoc(doc(db, 'users', user.user.uid))
+            
+            if (temp.data() === undefined) {
+                await setDoc(doc(db, 'users', user.user.uid), { name: user.user.displayName, todos: ['Add your todos'] })
             }
-            catch {
-                await setDoc(doc(db, 'users', user.user.uid), { name: user.user.displayName, todos: ['Add your todos']})
-            }
+
             navigate('/todos')
         }
         catch (e) {
@@ -61,17 +61,17 @@ export default function SignUp() {
                 <form className='signupForm' ref={formData} onSubmit={handleSignup}>
                     <div className='input'>
                         <label htmlFor='nameField'>Name</label>
-                        <input name='name' type='text' id='nameField'/>
+                        <input name='name' type='text' id='nameField' />
                     </div>
 
                     <div className='input'>
                         <label htmlFor='emailField'>Email</label>
-                        <input name='email' type='email' id='emailField'/>
+                        <input name='email' type='email' id='emailField' />
                     </div>
 
                     <div className='input'>
                         <label htmlFor='passwordField'>Password</label>
-                        <input name='password' type='password' id='passwordField'/>
+                        <input name='password' type='password' id='passwordField' />
                     </div>
 
                     <button disabled={loading} className='signupBtn'>Submit</button>

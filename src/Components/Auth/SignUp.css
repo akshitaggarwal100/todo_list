@@ -79,7 +79,7 @@
 }
 
 @media (max-width: 440px) {
-    .signupForm {
+    .signupForm, .error {
         width: 350px;
     }
 }

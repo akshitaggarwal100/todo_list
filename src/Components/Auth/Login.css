@@ -63,7 +63,7 @@
 }
 
 @media (max-width: 440px) {
-    .loginForm {
+    .loginForm, .error {
         width: 350px;
     }
 }
