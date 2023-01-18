@@ -15,10 +15,11 @@ export default function ToDoList() {
   const [user, setUser] = useState({name: ''})
     
   useEffect(() => {
-    return async () => {
+    (async () => {
       const response = await getDoc(doc(db, 'users', currentUser.uid))
       setUser(response.data())
-    }
+    })()
+    return () => {}
   }, [])
 
   function handleMenu() {

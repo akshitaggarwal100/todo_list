@@ -13,10 +13,11 @@ export default function Todos() {
 
     let { currentUser } = useUserDataContext()
     useEffect(() => {
-        return async () => {
+        (async () => {
             const response = await getDoc(doc(db, 'users', currentUser.uid))
             setUser(response.data())
-        }
+        })()
+        return () => {}
     }, [])
 
     async function taskDone(e) {
