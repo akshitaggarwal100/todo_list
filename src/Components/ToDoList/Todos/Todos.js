@@ -7,7 +7,7 @@ import { useUserDataContext } from '../../../AppContext'
 import { useEffect } from 'react'
 
 export default function Todos() {
-    const [user, setUser] = useState({ todos: [] })
+    const [user, setUser] = useState({ name: '', todos: [] })
     const [todoInput, setTodoInput] = useState(false)
     const todoInputForm = useRef(null)
 
@@ -17,10 +17,13 @@ export default function Todos() {
             const response = await getDoc(doc(db, 'users', currentUser.uid))
             setUser(response.data())
         }
-    }, [user])
+    }, [])
 
     async function taskDone(e) {
+        e.preventDefault()
         await updateDoc(doc(db, 'users', currentUser.uid), { todos: arrayRemove(e.target.previousSibling.innerText) })
+        const response = await getDoc(doc(db, 'users', currentUser.uid))
+        setUser(response.data())
     }
 
     function TodoInputSwitch() {
@@ -30,6 +33,8 @@ export default function Todos() {
     async function addTodo(e) {
         e.preventDefault()
         await updateDoc(doc(db, 'users', currentUser.uid), { todos: arrayUnion(todoInputForm.current.todo.value) })
+        const response = await getDoc(doc(db, 'users', currentUser.uid))
+        setUser(response.data())
         todoInputForm.current.todo.value = ''
     }
 
